@@ -61,6 +61,7 @@ thead th {
 
 .content-table tbody tr:nth-of-type(even) {
   background-color: #eeebf5;
+  transition: 0.3s;
 }
 
 .containerTable::-webkit-scrollbar {
@@ -117,7 +118,6 @@ img {
 .inputsContainer {
   margin: 60px 0;
   background-color: #251547;
-  padding: 1rem;
   border-radius: 5px;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 
@@ -132,8 +132,9 @@ img {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
-  margin: 1rem 0 2.5rem 0;
+  margin: 2rem auto 3rem auto;
   flex-shrink: 1;
+  text-transform: uppercase;
 }
 
 .inputs {
@@ -141,6 +142,7 @@ img {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin-top: 1rem;
 }
 
 .inputs > div {
@@ -150,7 +152,7 @@ img {
 
 .inputs label {
   padding-left: 1rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .inputsContainer input[type="text"],
@@ -161,8 +163,8 @@ img {
   max-width: 150px;
 }
 
-.inputsContainer button {
-  margin: 2rem auto 1rem auto;
+.btnFormat {
+  margin: 3rem auto 1.5rem auto;
 }
 
 .btnExport {
