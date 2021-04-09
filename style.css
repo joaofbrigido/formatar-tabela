@@ -1,0 +1,173 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(245, 249, 252);
+  padding: 1rem;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(90deg, #fd6c00, #2c1a55, #00ac45);
+  padding: 0.3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+thead th {
+  position: -webkit-sticky; /* for Safari */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #251547;
+}
+
+.containerTable {
+  max-width: 55rem;
+  max-height: 40rem;
+  overflow: scroll;
+  margin: 60px auto;
+  box-shadow: -5px -2px 16px 0px rgb(0 0 0 / 25%);
+  border-radius: 7px 7px 0 0;
+}
+
+.content-table {
+  border-collapse: collapse;
+  font-size: 1rem;
+  background-color: #fcfcfc;
+}
+
+.content-table thead tr {
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 25px;
+}
+
+.content-table tbody tr {
+  color: #1d1d1d;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #eeebf5;
+}
+
+.containerTable::-webkit-scrollbar {
+  background-color: #ddd;
+  border-radius: 3px;
+  height: 0.65rem;
+  width: 0.65rem;
+}
+.containerTable::-webkit-scrollbar-thumb {
+  background-color: #8b8b8b;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+}
+
+.wrapper {
+  max-width: 55rem;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn {
+  width: 15rem;
+  margin: 0 auto;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #00ac45;
+  padding: 0.6rem 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  color: white;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.03rem;
+  transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+img {
+  width: 400px;
+  margin: 80px auto;
+}
+
+#btnSend {
+  padding: 1.2rem 1rem;
+  background: linear-gradient(115deg, #fc6b00, #2c1a55);
+}
+
+.inputsContainer {
+  margin: 60px 0;
+  background-color: #251547;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.inputsContainer p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0 2.5rem 0;
+  flex-shrink: 1;
+}
+
+.inputs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputs > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs label {
+  padding-left: 1rem;
+  font-weight: 500;
+}
+
+.inputsContainer input[type="text"],
+.inputsContainer input[type="number"] {
+  font-size: 1rem;
+  padding: 0.2rem 0.5rem;
+  margin: 1rem;
+  max-width: 150px;
+}
+
+.inputsContainer button {
+  margin: 2rem auto 1rem auto;
+}
+
+.btnExport {
+  margin: 60px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
