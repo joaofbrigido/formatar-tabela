@@ -107,7 +107,7 @@ thead th {
 
 img {
   width: 400px;
-  margin: 80px auto;
+  margin: 80px auto 20px auto;
 }
 
 #btnSend {
@@ -116,7 +116,7 @@ img {
 }
 
 .inputsContainer {
-  margin: 60px 0;
+  margin: 60px 0 20px 0;
   background-color: #251547;
   border-radius: 5px;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
