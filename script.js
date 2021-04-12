@@ -1,6 +1,34 @@
-// const fileSend = document.getElementById("btnSend");
+const fileSend = document.getElementById("btnSend");
 const btnFormat = document.querySelector(".btnFormat");
 const btnExport = document.querySelector(".btnExport");
+const btnNoFile = document.querySelector(".btnNoFile");
+const btnWithFile = document.querySelector(".btnWithFile");
+const allInputsText = document.querySelector(".inputsContainer");
+const contentAnimation = document.querySelector(".contentAnimation");
+
+function removeClassAnimation() {
+  contentAnimation.classList.add("anima-up");
+  setTimeout(() => {
+    contentAnimation.classList.remove("anima-up");
+  }, 350);
+}
+
+function handleNoFile() {
+  removeClassAnimation();
+
+  btnWithFile.classList.remove("active");
+  fileSend.classList.remove("active");
+  btnNoFile.classList.add("active");
+  allInputsText.classList.add("active");
+}
+function handleWithFile() {
+  removeClassAnimation();
+
+  allInputsText.classList.remove("active");
+  btnNoFile.classList.remove("active");
+  btnWithFile.classList.add("active");
+  fileSend.classList.add("active");
+}
 
 function createDataTableJson() {
   const jsonArray = [];
@@ -16,7 +44,7 @@ function createDataTableJson() {
   } else {
     for (let i = 0; i < tableLength; i++) {
       const row = {
-        lengthRow: i + 1,
+        numberRow: i + 1,
         id: " ",
         descricao: `${description}`,
         tag: " ",
@@ -43,7 +71,6 @@ function createDataTableJson() {
         nr10: " ",
         observacao: " ",
       };
-
       jsonArray.push(row);
     }
     populateTableFromJson(jsonArray);
@@ -56,7 +83,7 @@ function populateTableFromJson(dataTableJson) {
   dataTableJson.forEach((data, i) => {
     const row = `
     <tr>
-      <td>${dataTableJson[i].lengthRow}</td>
+      <td>${dataTableJson[i].numberRow}</td>
       <td>${dataTableJson[i].id}</td>
       <td>${dataTableJson[i].descricao}</td>
       <td>${dataTableJson[i].tag}</td>
@@ -93,5 +120,70 @@ function exportTableToExcel() {
   table2excel.export(document.querySelectorAll("#tbl-data"), "cadastroObjetos");
 }
 
+function convertExcelToJson(event) {
+  var selectedFile = event.target.files[0];
+
+  if (selectedFile) {
+    var fileReader = new FileReader();
+    fileReader.onload = function (event) {
+      var data = event.target.result;
+
+      var workbook = XLSX.read(data, {
+        type: "binary",
+      });
+      workbook.SheetNames.forEach((sheet) => {
+        let rowObject = XLSX.utils.sheet_to_row_object_array(
+          workbook.Sheets[sheet]
+        );
+        let jsonObject = JSON.stringify(rowObject);
+        const arrayJson = JSON.parse(jsonObject);
+        populateTableFromExcelJson(arrayJson);
+      });
+    };
+    fileReader.readAsBinaryString(selectedFile);
+  }
+}
+
+function populateTableFromExcelJson(dataExcelJson) {
+  const table = document.getElementById("tbody");
+  table.innerHTML = " ";
+  dataExcelJson.forEach((data, i) => {
+    const row = `
+    <tr>
+      <td>${i + 1}</td>
+      <td></td>
+      <td>${dataExcelJson[i].descricao}</td>
+      <td></td>
+      <td>${dataExcelJson[i].qrcode}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>semfoto.jpg</td>
+      <td>${dataExcelJson[i].t_equipamento_tipo_id}</td>
+      <td>${dataExcelJson[i].t_area_id}</td>
+      <td>${dataExcelJson[i].t_empresa_id}</td>
+      <td></td>
+      <td>1</td>
+      <td></td>
+      <td>1</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    `;
+    table.innerHTML += row;
+  });
+}
+
 btnFormat.addEventListener("click", createDataTableJson);
 btnExport.addEventListener("click", exportTableToExcel);
+btnNoFile.addEventListener("click", handleNoFile);
+btnWithFile.addEventListener("click", handleWithFile);
+fileSend.addEventListener("change", convertExcelToJson);

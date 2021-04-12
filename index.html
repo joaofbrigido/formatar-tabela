@@ -11,6 +11,11 @@
     />
 
     <script src="table2excel.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"
+    ></script>
+
     <link rel="stylesheet" href="style.css" />
 
     <title>Formatar Planilha do Excel</title>
@@ -19,86 +24,102 @@
     <header>
       <p>Formatar Planilha - Cadastro de Objetos</p>
     </header>
-    <main class="wrapper">
-      <img src="./imgs/doqr-logo-novo.png" alt="Logo da DoQR" />
-      <!-- <input type="file" id="btnSend" class="btn" title="Inserir Planilha" /> -->
-      <div class="inputsContainer">
-        <p>Alterar Campos</p>
-        <div class="inputs">
-          <div>
-            <label>Tamanho da Tabela</label>
-            <input
-              type="number"
-              placeholder="Tamanho da Tabela"
-              id="tableLengthInput"
-            />
-          </div>
 
-          <div>
-            <label>Descrição</label>
-            <input type="text" placeholder="Descrição" id="descriptionInput" />
-          </div>
-
-          <div>
-            <label>QRcode</label>
-            <input type="text" placeholder="qrcode" id="qrcodeInput" />
-          </div>
-
-          <div>
-            <label>t_equipamento_tipo_id</label>
-            <input type="number" placeholder="tipo objetos" id="equipIdInput" />
-          </div>
-
-          <div>
-            <label>t_area_id</label>
-            <input type="number" placeholder="areas" id="areaIdInput" />
-          </div>
-
-          <div>
-            <label>t_empresa_id</label>
-            <input type="number" placeholder="empresas" id="empresaIdInput" />
-          </div>
-        </div>
-        <button class="btnFormat btn">Formatar</button>
-      </div>
-    </main>
-    <div class="containerTable" id="alvo">
-      <table id="tbl-data" class="content-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th>id</th>
-            <th>descrição</th>
-            <th>tag</th>
-            <th>qrcode</th>
-            <th>patrimonio</th>
-            <th>capacidade</th>
-            <th>fabricante</th>
-            <th>numerodeserie</th>
-            <th>nr12categoria</th>
-            <th>ano</th>
-            <th>foto</th>
-            <th>t_equipamento_tipo_id</th>
-            <th>t_area_id</th>
-            <th>t_empresa_id</th>
-            <th>principal_id</th>
-            <th>t_usuario_id</th>
-            <th>data_gravacao</th>
-            <th>t_dispositivo_id</th>
-            <th>autorizado_checklist</th>
-            <th>nr12</th>
-            <th>nr12risco</th>
-            <th>nr13</th>
-            <th>nr13categoria</th>
-            <th>nr10</th>
-            <th>observacao</th>
-          </tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-      </table>
+    <div class="navBtnContainer">
+      <button class="btnNoFile active">Sem Arquivo</button>
+      <button class="btnWithFile">Com Arquivo</button>
     </div>
 
-    <button class="btnExport btn">Exportar para Excel</button>
+    <div class="contentAnimation">
+      <main class="wrapper">
+        <img src="./imgs/doqr-logo-novo.png" alt="Logo da DoQR" />
+        <input type="file" id="btnSend" class="btn" title="Inserir Planilha" />
+        <div class="inputsContainer active">
+          <p>Alterar Campos</p>
+          <div class="inputs">
+            <div>
+              <label>Tamanho da Tabela</label>
+              <input
+                type="number"
+                placeholder="Tamanho da Tabela"
+                id="tableLengthInput"
+              />
+            </div>
+
+            <div>
+              <label>Descrição</label>
+              <input
+                type="text"
+                placeholder="Descrição"
+                id="descriptionInput"
+              />
+            </div>
+
+            <div>
+              <label>QRcode</label>
+              <input type="text" placeholder="qrcode" id="qrcodeInput" />
+            </div>
+
+            <div>
+              <label>t_equipamento_tipo_id</label>
+              <input
+                type="number"
+                placeholder="tipo objetos"
+                id="equipIdInput"
+              />
+            </div>
+
+            <div>
+              <label>t_area_id</label>
+              <input type="number" placeholder="areas" id="areaIdInput" />
+            </div>
+
+            <div>
+              <label>t_empresa_id</label>
+              <input type="number" placeholder="empresas" id="empresaIdInput" />
+            </div>
+          </div>
+          <button class="btnFormat btn">Formatar</button>
+        </div>
+      </main>
+      <div class="containerTable" id="alvo">
+        <table id="tbl-data" class="content-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>id</th>
+              <th>descrição</th>
+              <th>tag</th>
+              <th>qrcode</th>
+              <th>patrimonio</th>
+              <th>capacidade</th>
+              <th>fabricante</th>
+              <th>numerodeserie</th>
+              <th>nr12categoria</th>
+              <th>ano</th>
+              <th>foto</th>
+              <th>t_equipamento_tipo_id</th>
+              <th>t_area_id</th>
+              <th>t_empresa_id</th>
+              <th>principal_id</th>
+              <th>t_usuario_id</th>
+              <th>data_gravacao</th>
+              <th>t_dispositivo_id</th>
+              <th>autorizado_checklist</th>
+              <th>nr12</th>
+              <th>nr12risco</th>
+              <th>nr13</th>
+              <th>nr13categoria</th>
+              <th>nr10</th>
+              <th>observacao</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+
+      <button class="btnExport btn">Exportar para Excel</button>
+    </div>
 
     <script type="module" src="./script.js"></script>
   </body>
