@@ -13,11 +13,41 @@ header {
   justify-content: center;
   background: linear-gradient(90deg, #fd6c00, #2c1a55, #00ac45);
   padding: 0.3rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
   letter-spacing: 0.06rem;
   text-transform: uppercase;
   text-align: center;
+}
+
+.navBtnContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.btnNoFile,
+.btnWithFile {
+  background-color: #007830;
+  color: rgb(255 255 255 / 60%);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.4rem 1.2rem;
+  font-size: 1.2rem;
+}
+
+.btnNoFile.active {
+  background-color: #00ac45;
+  color: rgb(255 255 255 / 100%);
+  border-radius: 0 0 0 3px;
+  font-weight: bold;
+}
+
+.btnWithFile.active {
+  background-color: #00ac45;
+  color: rgb(255 255 255 / 100%);
+  border-radius: 0 0 3px 0;
+  font-weight: bold;
 }
 
 thead th {
@@ -111,8 +141,13 @@ img {
 }
 
 #btnSend {
+  display: none;
+  margin-top: 55px;
   padding: 1.2rem 1rem;
   background: linear-gradient(115deg, #fc6b00, #2c1a55);
+}
+#btnSend.active {
+  display: block;
 }
 
 .inputsContainer {
@@ -121,11 +156,14 @@ img {
   border-radius: 5px;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+.inputsContainer.active {
+  display: flex;
 }
 
 .inputsContainer p {
@@ -172,4 +210,21 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* ANIMAÇÃO APÓS TROCAR DE PÁG */
+
+@keyframes show-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: initial;
+    transform: initial;
+  }
+}
+
+.anima-up {
+  animation: show-up 0.3s ease;
 }
